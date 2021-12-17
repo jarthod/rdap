@@ -1,0 +1,249 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/ip/8.8.8.8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:14 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.arin.net/registry/ip/8.8.8.8/32
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=epafjBue43dW5RevQeibi8Dshetg7T6TdG6rHah87qx%2FddrIq4Ldw2rGcBgHvwugLpnkEH2ixtwYY0RMJhonZMUXqMaiUI5Z5TSTht3Le%2F6%2Ffw1ilRnXZsXZ5pPfBj8k99JdHbpQhw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf19906ba730847-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 17 Dec 2021 16:41:14 GMT
+- request:
+    method: get
+    uri: https://rdap.arin.net/registry/ip/8.8.8.8/32
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:14 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips
+      Content-Type:
+      - application/rdap+json
+      Content-Length:
+      - '6757'
+      Access-Control-Allow-Origin:
+      - "*"
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "rdapConformance" : [ "nro_rdap_profile_0", "rdap_level_0", "cidr0", "arin_originas0" ],
+          "notices" : [ {
+            "title" : "Terms of Service",
+            "description" : [ "By using the ARIN RDAP/Whois service, you are agreeing to the RDAP/Whois Terms of Use" ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+              "rel" : "terms-of-service",
+              "type" : "text/html",
+              "href" : "https://www.arin.net/resources/registry/whois/tou/"
+            } ]
+          }, {
+            "title" : "Whois Inaccuracy Reporting",
+            "description" : [ "If you see inaccuracies in the results, please visit: " ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+              "rel" : "inaccuracy-report",
+              "type" : "text/html",
+              "href" : "https://www.arin.net/resources/registry/whois/inaccuracy_reporting/"
+            } ]
+          }, {
+            "title" : "Copyright Notice",
+            "description" : [ "Copyright 1997-2021, American Registry for Internet Numbers, Ltd." ]
+          } ],
+          "handle" : "NET-8-8-8-0-1",
+          "startAddress" : "8.8.8.0",
+          "endAddress" : "8.8.8.255",
+          "ipVersion" : "v4",
+          "name" : "LVLT-GOGL-8-8-8",
+          "type" : "ALLOCATION",
+          "parentHandle" : "NET-8-0-0-0-1",
+          "events" : [ {
+            "eventAction" : "last changed",
+            "eventDate" : "2014-03-14T16:52:05-04:00"
+          }, {
+            "eventAction" : "registration",
+            "eventDate" : "2014-03-14T16:52:05-04:00"
+          } ],
+          "links" : [ {
+            "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+            "rel" : "self",
+            "type" : "application/rdap+json",
+            "href" : "https://rdap.arin.net/registry/ip/8.8.8.0"
+          }, {
+            "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+            "rel" : "alternate",
+            "type" : "application/xml",
+            "href" : "https://whois.arin.net/rest/net/NET-8-8-8-0-1"
+          }, {
+            "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+            "rel" : "up",
+            "type" : "application/rdap+json",
+            "href" : "https://rdap.arin.net/registry/ip/8.0.0.0/9"
+          } ],
+          "entities" : [ {
+            "handle" : "GOGL",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "Google LLC" ], [ "adr", {
+              "label" : "1600 Amphitheatre Parkway\nMountain View\nCA\n94043\nUnited States"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "kind", { }, "text", "org" ] ] ],
+            "roles" : [ "registrant" ],
+            "remarks" : [ {
+              "title" : "Registration Comments",
+              "description" : [ "Please note that the recommended way to file abuse complaints are located in the following links. ", "", "To report abuse and illegal activity: https://www.google.com/contact/", "", "For legal requests: http://support.google.com/legal ", "", "Regards, ", "The Google Team" ]
+            } ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+              "rel" : "self",
+              "type" : "application/rdap+json",
+              "href" : "https://rdap.arin.net/registry/entity/GOGL"
+            }, {
+              "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+              "rel" : "alternate",
+              "type" : "application/xml",
+              "href" : "https://whois.arin.net/rest/org/GOGL"
+            } ],
+            "events" : [ {
+              "eventAction" : "last changed",
+              "eventDate" : "2019-10-31T15:45:45-04:00"
+            }, {
+              "eventAction" : "registration",
+              "eventDate" : "2000-03-30T00:00:00-05:00"
+            } ],
+            "entities" : [ {
+              "handle" : "ABUSE5250-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "1600 Amphitheatre Parkway\nMountain View\nCA\n94043\nUnited States"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Abuse" ], [ "org", { }, "text", "Abuse" ], [ "kind", { }, "text", "group" ], [ "email", { }, "text", "network-abuse@google.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-650-253-0000" ] ] ],
+              "roles" : [ "abuse" ],
+              "remarks" : [ {
+                "title" : "Registration Comments",
+                "description" : [ "Please note that the recommended way to file abuse complaints are located in the following links.", "", "To report abuse and illegal activity: https://www.google.com/contact/", "", "For legal requests: http://support.google.com/legal ", "", "Regards,", "The Google Team" ]
+              }, {
+                "title" : "Unvalidated POC",
+                "description" : [ "ARIN has attempted to validate the data for this POC, but has received no response from the POC since 2019-10-24" ]
+              } ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/ABUSE5250-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/ABUSE5250-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2018-10-24T11:23:55-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2015-11-06T15:36:35-05:00"
+              } ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "ZG39-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "1600 Amphitheatre Parkway\nMountain View\nCA\n94043\nUnited States"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Google LLC" ], [ "org", { }, "text", "Google LLC" ], [ "kind", { }, "text", "group" ], [ "email", { }, "text", "arin-contact@google.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-650-253-0000" ] ] ],
+              "roles" : [ "technical", "administrative" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/ZG39-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/8.8.8.8/32",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/ZG39-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-11-10T10:26:54-05:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2000-11-30T13:54:08-05:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            } ],
+            "port43" : "whois.arin.net",
+            "objectClassName" : "entity"
+          } ],
+          "port43" : "whois.arin.net",
+          "status" : [ "active" ],
+          "objectClassName" : "ip network",
+          "cidr0_cidrs" : [ {
+            "v4prefix" : "8.8.8.0",
+            "length" : 24
+          } ],
+          "arin_originas0_originautnums" : [ ]
+        }
+  recorded_at: Fri, 17 Dec 2021 16:41:14 GMT
+recorded_with: VCR 6.0.0

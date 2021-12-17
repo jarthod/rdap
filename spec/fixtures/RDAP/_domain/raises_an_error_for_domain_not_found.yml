@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/domain/jsiqpmcurt.design
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:13 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.centralnic.com/design/domain/jsiqpmcurt.design
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hbp3lZa2vOcVzXoqqGcjGcJv73jE9HA6z0gc815WI8vs%2BdLHzorI44HAS2z3vyeeg0XKUiBHTeJptbi76phxIzCmYqbndHz0YGy3CwtXjCv1yEQHopCSAWGbf8jspJf1YYQ5903RiA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf19902bcd3cd87-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 17 Dec 2021 16:41:13 GMT
+- request:
+    method: get
+    uri: https://rdap.centralnic.com/design/domain/jsiqpmcurt.design
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Object not found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:13 GMT
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains
+      Referrer-Policy:
+      - same-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Security-Policy:
+      - default-src 'none'; object-src 'none'; report-uri https://www.centralnic.com/report-uri
+      Feature-Policy:
+      - camera 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer
+        'none'; microphone 'none'; midi 'none'; notifications 'none'; payment 'none';
+        push 'none'; speaker 'none'; sync-xhr 'none'; vibrate 'none'
+      Expect-Ct:
+      - enforce, max-age=604800, report-uri=https://www.centralnic.com/report-uri
+      Content-Language:
+      - en
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '404'
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '944'
+      Connection:
+      - close
+      Content-Type:
+      - application/rdap+json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"notices":[{"title":"Status Codes","description":["For more information
+        on domain status codes, please visit https:\/\/icann.org\/epp"],"links":[{"title":"More
+        information on domain status codes","href":"https:\/\/icann.org\/epp"}]},{"title":"Terms
+        of Use","description":["For more information on Whois status codes, please
+        visit https:\/\/icann.org\/epp","",">>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT
+        OF RDAP: please visit","https:\/\/www.centralnic.com\/support\/rdap <<<","","The
+        Whois and RDAP services are provided by CentralNic, and contain","information
+        pertaining to Internet domain names registered by our","our customers. By
+        using this service you are agreeing (1) not to use any","information presented
+        here for any purpose other than determining","ownership of domain names, (2)
+        not to store or reproduce this data in","any way, (3) not to use any high-volume,
+        automated, electronic processes","to obtain data from this service. Abuse
+        of this service is monitored and","actions in contravention of these terms
+        will result in being permanently","blacklisted. All data is (c) CentralNic
+        Ltd (https:\/\/www.centralnic.com)","","Access to the Whois and RDAP services
+        is rate limited. For more","information, visit https:\/\/registrar-console.centralnic.com\/pub\/whois_guidance."],"links":[{"title":"Terms
+        of Use","href":"https:\/\/www.nic.design\/"}]},{"title":"RDDS Inaccuracy Complaint
+        Form","description":["URL of the ICANN RDDS Inaccuracy Complaint Form: https:\/\/www.icann.org\/wicf\/"],"links":[{"title":"ICANN
+        RDDS Inaccuracy Complaint Form","href":"https:\/\/www.icann.org\/wicf\/"}]}],"links":[{"title":"Authoritative
+        URL for this resource","rel":"self","type":"application\/rdap+json","href":"https:\/\/rdap.centralnic.com\/design\/domain\/jsiqpmcurt.design"},{"title":"RDAP
+        Service Help","rel":"help","href":"https:\/\/whois.nic.design\/rdap"},{"title":"Top
+        Level Design, LLC","href":"https:\/\/toplevel.design\/"}],"errorCode":404,"title":"Object
+        not found","description":["Object not found"],"rdapConformance":["icann_rdap_response_profile_0","icann_rdap_technical_implementation_guide_0","rdap_level_0"],"lang":"en"}'
+  recorded_at: Fri, 17 Dec 2021 16:41:13 GMT
+recorded_with: VCR 6.0.0

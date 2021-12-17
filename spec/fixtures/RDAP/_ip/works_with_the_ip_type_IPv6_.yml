@@ -1,0 +1,420 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/ip/2620:119:35::35
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:14 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.arin.net/registry/ip/2620:119:35::35/128
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=XImWDhihLYT3Vw1BaBfVvGvLu3WQWu%2BXVJGzlS3V7a%2F3hhI0h8dtoPIJFHckvWx1EWj8c0dn%2FA0c5caxZ7qA34FqDAd8LIYzlGGb2EDms1oYwaLBdhASguKFVoccRPmJOn82b%2B0BeQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf1990a1ccd32c8-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 17 Dec 2021 16:41:14 GMT
+- request:
+    method: get
+    uri: https://rdap.arin.net/registry/ip/2620:119:35::35/128
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:14 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips
+      Content-Type:
+      - application/rdap+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "rdapConformance" : [ "nro_rdap_profile_0", "rdap_level_0", "cidr0", "arin_originas0" ],
+          "notices" : [ {
+            "title" : "Terms of Service",
+            "description" : [ "By using the ARIN RDAP/Whois service, you are agreeing to the RDAP/Whois Terms of Use" ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+              "rel" : "terms-of-service",
+              "type" : "text/html",
+              "href" : "https://www.arin.net/resources/registry/whois/tou/"
+            } ]
+          }, {
+            "title" : "Whois Inaccuracy Reporting",
+            "description" : [ "If you see inaccuracies in the results, please visit: " ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+              "rel" : "inaccuracy-report",
+              "type" : "text/html",
+              "href" : "https://www.arin.net/resources/registry/whois/inaccuracy_reporting/"
+            } ]
+          }, {
+            "title" : "Copyright Notice",
+            "description" : [ "Copyright 1997-2021, American Registry for Internet Numbers, Ltd." ]
+          } ],
+          "handle" : "NET6-2620-119-1",
+          "startAddress" : "2620:119::",
+          "endAddress" : "2620:119:ff:ffff:ffff:ffff:ffff:ffff",
+          "ipVersion" : "v6",
+          "name" : "OPENDNS-V6-NET-1",
+          "type" : "DIRECT ALLOCATION",
+          "parentHandle" : "NET6-2620-1",
+          "remarks" : [ {
+            "title" : "Registration Comments",
+            "description" : [ "http://www.opendns.com/\r", "Comment:        Use OpenDNS to make your Internet faster, safer, and smarter.\r", "Comment:        IPv6 Peering: mailto:peering@opendns.com" ]
+          } ],
+          "events" : [ {
+            "eventAction" : "last changed",
+            "eventDate" : "2021-12-14T20:28:35-05:00"
+          }, {
+            "eventAction" : "registration",
+            "eventDate" : "2014-04-11T18:56:49-04:00"
+          } ],
+          "links" : [ {
+            "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+            "rel" : "self",
+            "type" : "application/rdap+json",
+            "href" : "https://rdap.arin.net/registry/ip/2620:119::"
+          }, {
+            "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+            "rel" : "alternate",
+            "type" : "application/xml",
+            "href" : "https://whois.arin.net/rest/net/NET6-2620-119-1"
+          } ],
+          "entities" : [ {
+            "handle" : "OPEND-2",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "Cisco OpenDNS, LLC" ], [ "adr", {
+              "label" : "145 Bluxome st.\nSan Francisco\nCA\n94107\nUnited States"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "kind", { }, "text", "org" ] ] ],
+            "roles" : [ "registrant" ],
+            "remarks" : [ {
+              "title" : "Registration Comments",
+              "description" : [ "http://www.opendns.com/\r", "Use OpenDNS to make your Internet faster, safer,\r", "and smarter.\r", "DNS Servers: 208.67.222.222 208.67.220.220\r", "IPv4/IPv6 Peering: peering@opendns.com" ]
+            } ],
+            "links" : [ {
+              "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+              "rel" : "self",
+              "type" : "application/rdap+json",
+              "href" : "https://rdap.arin.net/registry/entity/OPEND-2"
+            }, {
+              "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+              "rel" : "alternate",
+              "type" : "application/xml",
+              "href" : "https://whois.arin.net/rest/org/OPEND-2"
+            } ],
+            "events" : [ {
+              "eventAction" : "last changed",
+              "eventDate" : "2021-08-18T05:21:35-04:00"
+            }, {
+              "eventAction" : "registration",
+              "eventDate" : "2008-02-26T11:26:52-05:00"
+            } ],
+            "entities" : [ {
+              "handle" : "ELYCH-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "2901 3rd Ave\nSeattle\nWA\n98121\nUnited States"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Chris Ely" ], [ "n", { }, "text", [ "Ely", "Chris", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "chely@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-415-513-0439" ] ] ],
+              "roles" : [ "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/ELYCH-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/ELYCH-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-08-17T17:16:56-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2021-08-17T17:16:56-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "PATEL2867-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "3571 N 1st St,\nSan Jose\nCA\n95134\nUnited States"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Kashyap  Patel" ], [ "n", { }, "text", [ "Patel", "Kashyap ", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "kashpate@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-213-440-3059" ] ] ],
+              "roles" : [ "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/PATEL2867-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/PATEL2867-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-08-17T16:37:51-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2021-08-17T16:37:51-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "NAPIE31-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "123 MIN AR\nTX\nCA\n34560\nUnited States"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Gary Napier" ], [ "n", { }, "text", [ "Napier", "Gary", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "ganapier@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-545-456-4567" ] ] ],
+              "roles" : [ "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/NAPIE31-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/NAPIE31-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-07-29T08:03:03-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2021-07-29T08:03:03-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "PLD7-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "Cisco\n90 Whitfield St\nLondon\n\nW1T 4EZ\nUnited Kingdom"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Peter Louis Dullaart" ], [ "n", { }, "text", [ "Dullaart", "Peter", "Louis", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "pdullaar@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+07881352680" ] ] ],
+              "roles" : [ "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/PLD7-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/PLD7-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-06-07T08:38:09-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2021-06-07T08:38:09-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "ZAGOR14-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "90 Whitfield Street\nLondon W1T 4EZ\nUnited Kingdom\nLondon\n\n\nUnited Kingdom"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Piotr Zagorowski" ], [ "n", { }, "text", [ "Zagorowski", "Piotr", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "pzagorow@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+44 20 7034 9367" ] ] ],
+              "roles" : [ "noc", "technical", "abuse" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/ZAGOR14-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/ZAGOR14-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-05-17T07:18:44-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2018-05-23T13:30:44-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "PEREI91-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "675 West Hastings St\nSuite 500\nVancouver\nBC\nV6B 1N2\nCanada"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Alvaro Pereira" ], [ "n", { }, "text", [ "Pereira", "Alvaro", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "alvperei@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-415-513-0439" ] ] ],
+              "roles" : [ "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/PEREI91-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/PEREI91-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-04-19T11:26:11-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2012-02-23T15:35:42-05:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "CPC5-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "Via del Serafico 200,\nRoma\n\n\nItaly"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Pier Carlo Chiodi" ], [ "n", { }, "text", [ "Chiodi", "Pier Carlo", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "pchiodi@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+39 335 1034184" ] ] ],
+              "roles" : [ "noc", "technical" ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/CPC5-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/CPC5-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2021-06-18T08:18:03-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2019-06-19T11:02:01-04:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            }, {
+              "handle" : "MURRA56-ARIN",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "adr", {
+                "label" : "500 - 675 West Hastings Street\nVancouver\nBC\nV6B 1N2\nCanada"
+              }, "text", [ "", "", "", "", "", "", "" ] ], [ "fn", { }, "text", "Chris Murray" ], [ "n", { }, "text", [ "Murray", "Chris", "", "", "" ] ], [ "kind", { }, "text", "individual" ], [ "email", { }, "text", "chrmurr2@cisco.com" ], [ "tel", {
+                "type" : [ "work", "voice" ]
+              }, "text", "+1-415-344-3200" ] ] ],
+              "roles" : [ "technical", "abuse", "noc", "administrative" ],
+              "remarks" : [ {
+                "title" : "Registration Comments",
+                "description" : [ "For Better DNS! Use:", "208.67.222.222", "208.67.220.220" ]
+              } ],
+              "links" : [ {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "self",
+                "type" : "application/rdap+json",
+                "href" : "https://rdap.arin.net/registry/entity/MURRA56-ARIN"
+              }, {
+                "value" : "https://rdap.arin.net/registry/ip/2620:119:35::35/128",
+                "rel" : "alternate",
+                "type" : "application/xml",
+                "href" : "https://whois.arin.net/rest/poc/MURRA56-ARIN"
+              } ],
+              "events" : [ {
+                "eventAction" : "last changed",
+                "eventDate" : "2020-10-23T13:52:56-04:00"
+              }, {
+                "eventAction" : "registration",
+                "eventDate" : "2014-01-06T17:09:33-05:00"
+              } ],
+              "status" : [ "validated" ],
+              "port43" : "whois.arin.net",
+              "objectClassName" : "entity"
+            } ],
+            "port43" : "whois.arin.net",
+            "objectClassName" : "entity"
+          } ],
+          "port43" : "whois.arin.net",
+          "status" : [ "active" ],
+          "objectClassName" : "ip network",
+          "cidr0_cidrs" : [ {
+            "v6prefix" : "2620:119::",
+            "length" : 40
+          } ],
+          "arin_originas0_originautnums" : [ 36692 ]
+        }
+  recorded_at: Fri, 17 Dec 2021 16:41:15 GMT
+recorded_with: VCR 6.0.0
