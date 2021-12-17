@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/domain/8.8.8.8
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:13 GMT
+      Content-Type:
+      - application/rdap+json
+      Content-Length:
+      - '369'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '404'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=pOiHT1ZhlLQXEAEyxcfldSgeC8XzSeccilFMnCXjJXlKetnJnLX4xZDaycmwLirCVBKiJo9GjT1tMR0FKqYmANbJKAYmRH8%2BvCqOoqyZsMzY8I6MZZsYFBMCb8iCZFo8272wuema9Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf199012a043b3d-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: '{"rdapConformance":["rdap_level_0"],"lang":"en","errorCode":404,"title":"domain
+        8.8.8.8 not found in IANA boostrap file","notices":[{"title":"Terms of Use","description":["For
+        more information about this service, please see https:\/\/about.rdap.org."],"links":[{"rel":"about","href":"https:\/\/about.rdap.org","title":"https:\/\/about.rdap.org","type":"text\/html"}]}]}'
+  recorded_at: Fri, 17 Dec 2021 16:41:13 GMT
+recorded_with: VCR 6.0.0

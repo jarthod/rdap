@@ -1,0 +1,164 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/autnum/16276
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:15 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.db.ripe.net/autnum/16276
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=P80y9Au4hQEbknBLGynRoUuub7uujXas6R64X%2BxqsnJDk8G2zPxOXpI%2Fg%2FZK10d%2Ff1eNxFXYdboHJ4TGWEfoeS8tLewmzb639PphfbR3gPQnmsLN6%2BLZWXtp069PHF8G%2BCD688nb6Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf1990e5e0339db-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 17 Dec 2021 16:41:15 GMT
+- request:
+    method: get
+    uri: https://rdap.db.ripe.net/autnum/16276
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:15 GMT
+      Server:
+      - Jetty(10.0.7)
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/rdap+json
+      Content-Length:
+      - '2355'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "handle" : "AS16276",
+          "name" : "OVH",
+          "type" : "DIRECT ALLOCATION",
+          "entities" : [ {
+            "handle" : "OK217-RIPE",
+            "roles" : [ "administrative" ],
+            "objectClassName" : "entity"
+          }, {
+            "handle" : "ORG-OS3-RIPE",
+            "roles" : [ "registrant" ],
+            "objectClassName" : "entity"
+          }, {
+            "handle" : "OTC2-RIPE",
+            "roles" : [ "technical" ],
+            "objectClassName" : "entity"
+          }, {
+            "handle" : "OVH-MNT",
+            "roles" : [ "registrant" ],
+            "objectClassName" : "entity"
+          }, {
+            "handle" : "RIPE-NCC-END-MNT",
+            "roles" : [ "registrant" ],
+            "objectClassName" : "entity"
+          }, {
+            "handle" : "AR15333-RIPE",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "Abuse-C Role" ], [ "kind", { }, "text", "group" ], [ "adr", {
+              "label" : "OVH SAS\n2 Rue Kellermann\n59100 ROUBAIX\nFRANCE"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "email", {
+              "type" : "email"
+            }, "text", "lir@ovh.net" ], [ "email", {
+              "type" : "abuse"
+            }, "text", "abuse@ovh.net" ] ] ],
+            "roles" : [ "abuse" ],
+            "entities" : [ {
+              "handle" : "OVH-MNT",
+              "roles" : [ "registrant" ],
+              "objectClassName" : "entity"
+            } ],
+            "objectClassName" : "entity"
+          } ],
+          "links" : [ {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "self",
+            "href" : "https://rdap.db.ripe.net/autnum/16276"
+          }, {
+            "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+            "rel" : "copyright",
+            "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+          } ],
+          "events" : [ {
+            "eventAction" : "last changed",
+            "eventDate" : "2021-12-01T13:21:46Z"
+          } ],
+          "rdapConformance" : [ "rdap_level_0" ],
+          "notices" : [ {
+            "title" : "Filtered",
+            "description" : [ "This output has been filtered." ]
+          }, {
+            "title" : "Source",
+            "description" : [ "Objects returned came from source", "RIPE" ]
+          }, {
+            "title" : "Terms and Conditions",
+            "description" : [ "This is the RIPE Database query service. The objects are in RDAP format." ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "terms-of-service",
+              "href" : "http://www.ripe.net/db/support/db-terms-conditions.pdf",
+              "type" : "application/pdf"
+            } ]
+          } ],
+          "port43" : "whois.ripe.net",
+          "objectClassName" : "autnum"
+        }
+  recorded_at: Fri, 17 Dec 2021 16:41:15 GMT
+recorded_with: VCR 6.0.0

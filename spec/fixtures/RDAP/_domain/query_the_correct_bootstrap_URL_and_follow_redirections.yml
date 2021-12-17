@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/domain/google.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Fri, 17 Dec 2021 16:41:11 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.verisign.com/com/v1/domain/google.com
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=rCIZl9tUVwETH6tAMIMvrAGPF8id4f%2FKUxQqb3wHyLvQU1vp4qohDzl%2BpLFfE%2B8wr%2FV7uaJwgbjAsZhSnRALFc29AbX14zX%2F9lD2%2BF0iT4CR%2B0Abbm0TZIp76jesjzvp0GT4EoR0qg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6bf198f75daf084b-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Fri, 17 Dec 2021 16:41:11 GMT
+- request:
+    method: get
+    uri: https://rdap.verisign.com/com/v1/domain/google.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2363'
+      Content-Type:
+      - application/rdap+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15768000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"objectClassName":"domain","handle":"2138514_DOMAIN_COM-VRSN","ldhName":"GOOGLE.COM","links":[{"value":"https:\/\/rdap.verisign.com\/com\/v1\/domain\/GOOGLE.COM","rel":"self","href":"https:\/\/rdap.verisign.com\/com\/v1\/domain\/GOOGLE.COM","type":"application\/rdap+json"},{"value":"https:\/\/rdap.markmonitor.com\/rdap\/domain\/GOOGLE.COM","rel":"related","href":"https:\/\/rdap.markmonitor.com\/rdap\/domain\/GOOGLE.COM","type":"application\/rdap+json"}],"status":["client
+        delete prohibited","client transfer prohibited","client update prohibited","server
+        delete prohibited","server transfer prohibited","server update prohibited"],"entities":[{"objectClassName":"entity","handle":"292","roles":["registrar"],"publicIds":[{"type":"IANA
+        Registrar ID","identifier":"292"}],"vcardArray":["vcard",[["version",{},"text","4.0"],["fn",{},"text","MarkMonitor
+        Inc."]]],"entities":[{"objectClassName":"entity","roles":["abuse"],"vcardArray":["vcard",[["version",{},"text","4.0"],["fn",{},"text",""],["tel",{"type":"voice"},"uri","tel:+1.2083895740"],["email",{},"text","abusecomplaints@markmonitor.com"]]]}]}],"events":[{"eventAction":"registration","eventDate":"1997-09-15T04:00:00Z"},{"eventAction":"expiration","eventDate":"2028-09-14T04:00:00Z"},{"eventAction":"last
+        update of RDAP database","eventDate":"2021-12-17T11:35:32Z"}],"secureDNS":{"delegationSigned":false},"nameservers":[{"objectClassName":"nameserver","ldhName":"NS1.GOOGLE.COM"},{"objectClassName":"nameserver","ldhName":"NS2.GOOGLE.COM"},{"objectClassName":"nameserver","ldhName":"NS3.GOOGLE.COM"},{"objectClassName":"nameserver","ldhName":"NS4.GOOGLE.COM"}],"rdapConformance":["rdap_level_0","icann_rdap_technical_implementation_guide_0","icann_rdap_response_profile_0"],"notices":[{"title":"Terms
+        of Use","description":["Service subject to Terms of Use."],"links":[{"href":"https:\/\/www.verisign.com\/domain-names\/registration-data-access-protocol\/terms-service\/index.xhtml","type":"text\/html"}]},{"title":"Status
+        Codes","description":["For more information on domain status codes, please
+        visit https:\/\/icann.org\/epp"],"links":[{"href":"https:\/\/icann.org\/epp","type":"text\/html"}]},{"title":"RDDS
+        Inaccuracy Complaint Form","description":["URL of the ICANN RDDS Inaccuracy
+        Complaint Form: https:\/\/icann.org\/wicf"],"links":[{"href":"https:\/\/icann.org\/wicf","type":"text\/html"}]}]}'
+  recorded_at: Fri, 17 Dec 2021 16:41:12 GMT
+recorded_with: VCR 6.0.0
