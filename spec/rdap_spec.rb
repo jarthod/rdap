@@ -24,6 +24,32 @@ describe RDAP do
       expect(WebMock).to have_requested(:get, 'https://rdap.verisign.com/com/v1/domain/google.com').once
     end
 
+    it "pass default headers", vcr: false do
+      stub_request(:get, "https://rdap.org/domain/test.com").with(headers: {
+        "Accept" => "application/rdap+json",
+        "User-Agent" => "RDAP ruby gem (#{RDAP::VERSION})"
+      }).to_return(status: 302, headers: { "Location" => "https://rdap.domain.com/domain/test.com" })
+      stub_request(:get, "https://rdap.domain.com/domain/test.com").with(headers: {
+        "Accept" => "application/rdap+json",
+        "User-Agent" => "RDAP ruby gem (#{RDAP::VERSION})"
+      }).to_return(body: "{}")
+      RDAP.domain("test.com")
+    end
+
+    it "pass customized headers if any", vcr: false do
+      stub_request(:get, "https://rdap.org/domain/test.com").with(headers: {
+        "Accept" => "application/rdap+json",
+        "User-Agent" => "My application",
+        "Accept-Encoding" => "gzip"
+      }).to_return(status: 302, headers: { "Location" => "https://rdap.domain.com/domain/test.com" })
+      stub_request(:get, "https://rdap.domain.com/domain/test.com").with(headers: {
+        "Accept" => "application/rdap+json",
+        "User-Agent" => "My application",
+        "Accept-Encoding" => "gzip"
+      }).to_return(body: "{}")
+      RDAP.domain("test.com", headers: {'User-Agent' => 'My application', 'Accept-Encoding' => 'gzip'})
+    end
+
     it "supports overriding the bootstrap URL" do
       expect(RDAP.domain("google.com", server: "https://rdap-bootstrap.arin.net/bootstrap")).to include({
         "objectClassName" => "domain",

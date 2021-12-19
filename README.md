@@ -63,6 +63,7 @@ RDAP.query("16276", type: :autnum)
 RDAP.domain("google.com", server: "https://rdap-bootstrap.arin.net/bootstrap") # Specify an alternative bootstrap server
 RDAP.domain("google.com", server: "https://rdap.verisign.com/com/v1") # Or directly the target RDAP server if you know it
 RDAP.domain("google.com", timeout: 20) # Customize open and read timeouts (default = 5 sec each)
+RDAP.domain("google.com", headers: {'User-Agent' => 'My application name'}) # Override some HTTP request headers. Default headers are in RDAP::HEADERS
 
 # Error handling
 RDAP.domain("test.fr") # TLD not supported yet
@@ -83,8 +84,9 @@ The gem make a query to one of the publicly available RDAP bootstrap server (the
 
 ## Changelog
 
-**0.1.1** (2021-12-19) - Added TooManyRequests expection in case of 429
-**0.1.0** (2021-12-17) - Initial version
+- **master** - Added HTTP headers customization
+- **0.1.1** (2021-12-19) - Added TooManyRequests expection in case of 429
+- **0.1.0** (2021-12-17) - Initial version
 
 ## Contributing
 

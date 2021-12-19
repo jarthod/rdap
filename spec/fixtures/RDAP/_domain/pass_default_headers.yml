@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/domain/test.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - RDAP ruby gem (0.1.1)
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Sun, 19 Dec 2021 18:00:43 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://rdap.verisign.com/com/v1/domain/test.com
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=UKhioZd%2B1B7ilU19XMOlx%2BASOvTRUbDb7IMnokY5MO%2Bbp9SUwfVDKlHXPofF4WPomGZHUQXmHCBTga4BW%2BbvgAdQqYu%2FCOcelNcmcOzlWSdrVMiy%2B6bUc3j%2F%2B7ZZuySliBUyCLlViA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6c0288356b8d32bf-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Sun, 19 Dec 2021 18:00:43 GMT
+- request:
+    method: get
+    uri: https://rdap.verisign.com/com/v1/domain/test.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - RDAP ruby gem (0.1.1)
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2153'
+      Content-Type:
+      - application/rdap+json
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15768000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"objectClassName":"domain","handle":"5429075_DOMAIN_COM-VRSN","ldhName":"TEST.COM","links":[{"value":"https:\/\/rdap.verisign.com\/com\/v1\/domain\/TEST.COM","rel":"self","href":"https:\/\/rdap.verisign.com\/com\/v1\/domain\/TEST.COM","type":"application\/rdap+json"},{"value":"https:\/\/rdap.networksolutions.com\/rdap\/domain\/TEST.COM","rel":"related","href":"https:\/\/rdap.networksolutions.com\/rdap\/domain\/TEST.COM","type":"application\/rdap+json"}],"status":["client
+        transfer prohibited"],"entities":[{"objectClassName":"entity","handle":"2","roles":["registrar"],"publicIds":[{"type":"IANA
+        Registrar ID","identifier":"2"}],"vcardArray":["vcard",[["version",{},"text","4.0"],["fn",{},"text","Network
+        Solutions, LLC"]]],"entities":[{"objectClassName":"entity","roles":["abuse"],"vcardArray":["vcard",[["version",{},"text","4.0"],["fn",{},"text",""],["tel",{"type":"voice"},"uri","tel:+1.8003337680"],["email",{},"text","abuse@web.com"]]]}]}],"events":[{"eventAction":"registration","eventDate":"1997-06-18T04:00:00Z"},{"eventAction":"expiration","eventDate":"2023-06-17T04:00:00Z"},{"eventAction":"last
+        update of RDAP database","eventDate":"2021-12-19T11:21:50Z"}],"secureDNS":{"delegationSigned":false},"nameservers":[{"objectClassName":"nameserver","ldhName":"NS1.HOSTING.COM"},{"objectClassName":"nameserver","ldhName":"NS2.HOSTING.COM"},{"objectClassName":"nameserver","ldhName":"NS3.HOSTING.COM"}],"rdapConformance":["rdap_level_0","icann_rdap_technical_implementation_guide_0","icann_rdap_response_profile_0"],"notices":[{"title":"Terms
+        of Use","description":["Service subject to Terms of Use."],"links":[{"href":"https:\/\/www.verisign.com\/domain-names\/registration-data-access-protocol\/terms-service\/index.xhtml","type":"text\/html"}]},{"title":"Status
+        Codes","description":["For more information on domain status codes, please
+        visit https:\/\/icann.org\/epp"],"links":[{"href":"https:\/\/icann.org\/epp","type":"text\/html"}]},{"title":"RDDS
+        Inaccuracy Complaint Form","description":["URL of the ICANN RDDS Inaccuracy
+        Complaint Form: https:\/\/icann.org\/wicf"],"links":[{"href":"https:\/\/icann.org\/wicf","type":"text\/html"}]}]}'
+  recorded_at: Sun, 19 Dec 2021 18:00:43 GMT
+recorded_with: VCR 6.0.0

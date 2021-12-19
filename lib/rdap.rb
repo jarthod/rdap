@@ -4,7 +4,11 @@ require 'net/http'
 module RDAP
   VERSION = "0.1.1"
   BOOTSTRAP = "https://rdap.org/"
-  TYPES = [:domain, :ip, :autnum]
+  TYPES = [:domain, :ip, :autnum].freeze
+  HEADERS = {
+    "User-Agent" => "RDAP ruby gem (#{VERSION})",
+    "Accept" => "application/rdap+json"
+  }
 
   class Error < StandardError; end
   class ServerError < Error; end
@@ -23,15 +27,15 @@ module RDAP
     query name, type: :autnum, **opts
   end
 
-  def self.query name, type:, timeout: 5, server: BOOTSTRAP
+  def self.query name, type:, timeout: 5, server: BOOTSTRAP, headers: {}
     TYPES.include?(type) or raise ArgumentError.new("RDAP: Invalid query type: #{type}, supported types: #{TYPES}")
     uri = URI("#{server.chomp('/')}/#{type}/#{name}")
-    get_follow_redirects(uri, timeout: timeout)
+    get_follow_redirects(uri, timeout: timeout, headers: headers)
   end
 
   private
 
-  def self.get_follow_redirects uri, timeout: 5, redirection_limit: 5
+  def self.get_follow_redirects uri, timeout: 5, headers: {}, redirection_limit: 5
     raise ServerError.new("Too many redirections (> #{redirection_limit}) at #{uri}") if redirection_limit == 0
 
     http = Net::HTTP.new(uri.host, uri.port)
@@ -40,7 +44,7 @@ module RDAP
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
-    response = http.get(uri.path, "Accept" => "application/rdap+json")
+    response = http.get(uri.path, HEADERS.merge(headers))
     case response
     when Net::HTTPSuccess
       document = JSON.parse(response.body)
@@ -58,7 +62,7 @@ module RDAP
     when Net::HTTPTooManyRequests
       raise TooManyRequests.new("[#{response.code}] #{response.message}")
     when Net::HTTPRedirection
-      get_follow_redirects(URI(response["location"]), timeout: timeout, redirection_limit: redirection_limit - 1)
+      get_follow_redirects(URI(response["location"]), timeout: timeout, headers: headers, redirection_limit: redirection_limit - 1)
     else
       raise ServerError.new("[#{response.code}] #{response.message}")
     end
