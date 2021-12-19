@@ -2,13 +2,14 @@ require 'json'
 require 'net/http'
 
 module RDAP
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum]
 
   class Error < StandardError; end
   class ServerError < Error; end
   class NotFound < Error; end
+  class TooManyRequests < Error; end
 
   def self.domain name, **opts
     query name, type: :domain, **opts
@@ -54,6 +55,8 @@ module RDAP
       else
         raise NotFound.new("[#{response.code}] #{response.message}")
       end
+    when Net::HTTPTooManyRequests
+      raise TooManyRequests.new("[#{response.code}] #{response.message}")
     when Net::HTTPRedirection
       get_follow_redirects(URI(response["location"]), timeout: timeout, redirection_limit: redirection_limit - 1)
     else

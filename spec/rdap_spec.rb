@@ -68,6 +68,13 @@ describe RDAP do
       }.to raise_error(RDAP::NotFound, "[404] Not Found")
     end
 
+    it "raises an error for throttling", vcr: false do
+      stub_request(:get, "https://rdap.org/domain/test.com").to_return(status: [429, "Too Many Requests"])
+      expect {
+        RDAP.domain("test.com")
+      }.to raise_error(RDAP::TooManyRequests, "[429] Too Many Requests")
+    end
+
     it "raises an error for an invalid URI" do
       expect {
         RDAP.domain("u$&~(!*@&@^#}")
