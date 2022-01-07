@@ -84,7 +84,7 @@ The gem make a query to one of the publicly available RDAP bootstrap server (the
 
 ## Changelog
 
-- **master** - Added HTTP headers customization
+- **0.1.2** (2022-01-07) - Added HTTP headers customization
 - **0.1.1** (2021-12-19) - Added TooManyRequests expection in case of 429
 - **0.1.0** (2021-12-17) - Initial version
 

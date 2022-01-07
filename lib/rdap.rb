@@ -2,7 +2,7 @@ require 'json'
 require 'net/http'
 
 module RDAP
-  VERSION = "0.1.1"
+  VERSION = "0.1.2"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum].freeze
   HEADERS = {
