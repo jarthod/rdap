@@ -101,6 +101,15 @@ describe RDAP do
       }.to raise_error(RDAP::TooManyRequests, "[429] Too Many Requests")
     end
 
+    it "raises an error for invalid SSL" do
+      stub = stub_request(:get, "https://whois.registrar.adult/rdap/domain/heaven.porn").to_raise(OpenSSL::SSL::SSLError.new("SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)"))
+      expect {
+        RDAP.domain("heaven.porn")
+      }.to raise_error(RDAP::SSLError, "SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired) (whois.registrar.adult)")
+      expect(WebMock).to have_requested(:get, 'https://rdap.org/domain/heaven.porn').once
+      expect(stub).to have_been_requested
+    end
+
     it "raises an error for an invalid URI" do
       expect {
         RDAP.domain("u$&~(!*@&@^#}")

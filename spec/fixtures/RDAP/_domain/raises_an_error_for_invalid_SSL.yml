@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rdap.org/domain/heaven.porn
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - RDAP ruby gem (0.1.2)
+      Accept:
+      - application/rdap+json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Date:
+      - Mon, 10 Jan 2022 15:27:09 GMT
+      Content-Type:
+      - text/html; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Status:
+      - '302'
+      Location:
+      - https://whois.registrar.adult/rdap/domain/heaven.porn
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2AfcRj0tV5FxU0CLi3wwZMcaDwWxKSCeWPq%2B5Tmc%2BuZdxKTdGW9Jh%2B9g%2FO168xPN2torWMBATGBiiqcuRtSO1WygGbEeJwERNtQTe8IF6TrH0rc%2Bt5H4KfXgVhZlrOFxnC3RPmkrsw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6cb6ed859e2e39a5-CDG
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 10 Jan 2022 15:27:09 GMT
+recorded_with: VCR 6.0.0

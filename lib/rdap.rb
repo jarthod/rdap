@@ -2,7 +2,7 @@ require 'json'
 require 'net/http'
 
 module RDAP
-  VERSION = "0.1.2"
+  VERSION = "0.1.3"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum].freeze
   HEADERS = {
@@ -12,6 +12,7 @@ module RDAP
 
   class Error < StandardError; end
   class ServerError < Error; end
+  class SSLError < ServerError; end
   class NotFound < Error; end
   class TooManyRequests < Error; end
 
@@ -66,5 +67,7 @@ module RDAP
     else
       raise ServerError.new("[#{response.code}] #{response.message}")
     end
+  rescue OpenSSL::SSL::SSLError => e
+    raise SSLError.new("#{e.message} (#{uri.host})")
   end
 end
