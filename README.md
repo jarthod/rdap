@@ -84,6 +84,7 @@ The gem make a query to one of the publicly available RDAP bootstrap server (the
 
 ## Changelog
 
+- **0.1.4** (2022-02-01) - Wrap JSON parser errors as RDAP::InvalidReponse and also raise RDAP::EmptyResponse when body is missing
 - **0.1.3** (2022-01-10) - Wrap SSL errors as RDAP::SSLError < ServerError < Error
 - **0.1.2** (2022-01-07) - Added HTTP headers customization
 - **0.1.1** (2021-12-19) - Added TooManyRequests expection in case of 429

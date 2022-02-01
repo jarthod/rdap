@@ -101,6 +101,20 @@ describe RDAP do
       }.to raise_error(RDAP::TooManyRequests, "[429] Too Many Requests")
     end
 
+    it "raises an error for empty body", vcr: false do
+      stub_request(:get, "https://rdap.org/domain/test.com").to_return(status: [204, "No Content"])
+      expect {
+        RDAP.domain("test.com")
+      }.to raise_error(RDAP::EmptyResponse, "[204] No Content")
+    end
+
+    it "raises an error for invalid JSON", vcr: false do
+      stub_request(:get, "https://rdap.org/domain/test.com").to_return(body: "invalid")
+      expect {
+        RDAP.domain("test.com")
+      }.to raise_error(RDAP::InvalidResponse, "JSON parser error: 809: unexpected token at 'invalid'")
+    end
+
     it "raises an error for invalid SSL" do
       stub = stub_request(:get, "https://whois.registrar.adult/rdap/domain/heaven.porn").to_raise(OpenSSL::SSL::SSLError.new("SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)"))
       expect {

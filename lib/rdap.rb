@@ -2,7 +2,7 @@ require 'json'
 require 'net/http'
 
 module RDAP
-  VERSION = "0.1.3"
+  VERSION = "0.1.4"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum].freeze
   HEADERS = {
@@ -13,6 +13,8 @@ module RDAP
   class Error < StandardError; end
   class ServerError < Error; end
   class SSLError < ServerError; end
+  class EmptyResponse < ServerError; end
+  class InvalidResponse < ServerError; end
   class NotFound < Error; end
   class TooManyRequests < Error; end
 
@@ -48,6 +50,9 @@ module RDAP
     response = http.get(uri.path, HEADERS.merge(headers))
     case response
     when Net::HTTPSuccess
+      if !response.body
+        raise EmptyResponse.new("[#{response.code}] #{response.message}")
+      end
       document = JSON.parse(response.body)
       if document["errorCode"]
         raise ServerError.new("[#{document["errorCode"]}] #{document["title"]} (#{uri})")
@@ -69,5 +74,7 @@ module RDAP
     end
   rescue OpenSSL::SSL::SSLError => e
     raise SSLError.new("#{e.message} (#{uri.host})")
+  rescue JSON::ParserError => e
+    raise InvalidResponse.new("JSON parser error: #{e.message}")
   end
 end
