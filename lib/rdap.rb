@@ -2,12 +2,13 @@ require 'json'
 require 'net/http'
 
 module RDAP
-  VERSION = "0.1.4"
+  VERSION = "0.1.5"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum].freeze
   HEADERS = {
     "User-Agent" => "RDAP ruby gem (#{VERSION})",
-    "Accept" => "application/rdap+json"
+    "Accept" => "application/rdap+json, application/json, */*;q=0.8",
+    # Had to include other types here because rdap.nic.fr returns an error with only rdap+json -_-
   }
 
   class Error < StandardError; end

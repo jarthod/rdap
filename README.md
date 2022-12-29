@@ -84,6 +84,7 @@ The gem make a query to one of the publicly available RDAP bootstrap server (the
 
 ## Changelog
 
+- **0.1.5** (2022-12-29) - Add `application/json, */*` fallback Accept types to support rdap.nic.fr which does not like `application/rdap+json` (as of 2022-12-29). I also contacted them to report this issue.
 - **0.1.4** (2022-02-01) - Wrap JSON parser errors as RDAP::InvalidReponse and also raise RDAP::EmptyResponse when body is missing
 - **0.1.3** (2022-01-10) - Wrap SSL errors as RDAP::SSLError < ServerError < Error
 - **0.1.2** (2022-01-07) - Added HTTP headers customization

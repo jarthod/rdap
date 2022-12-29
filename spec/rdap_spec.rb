@@ -26,11 +26,11 @@ describe RDAP do
 
     it "pass default headers", vcr: false do
       stub_request(:get, "https://rdap.org/domain/test.com").with(headers: {
-        "Accept" => "application/rdap+json",
+        "Accept" => "application/rdap+json, application/json, */*;q=0.8",
         "User-Agent" => "RDAP ruby gem (#{RDAP::VERSION})"
       }).to_return(status: 302, headers: { "Location" => "https://rdap.domain.com/domain/test.com" })
       stub_request(:get, "https://rdap.domain.com/domain/test.com").with(headers: {
-        "Accept" => "application/rdap+json",
+        "Accept" => "application/rdap+json, application/json, */*;q=0.8",
         "User-Agent" => "RDAP ruby gem (#{RDAP::VERSION})"
       }).to_return(body: "{}")
       RDAP.domain("test.com")
@@ -38,12 +38,12 @@ describe RDAP do
 
     it "pass customized headers if any", vcr: false do
       stub_request(:get, "https://rdap.org/domain/test.com").with(headers: {
-        "Accept" => "application/rdap+json",
+        "Accept" => "application/rdap+json, application/json, */*;q=0.8",
         "User-Agent" => "My application",
         "Accept-Encoding" => "gzip"
       }).to_return(status: 302, headers: { "Location" => "https://rdap.domain.com/domain/test.com" })
       stub_request(:get, "https://rdap.domain.com/domain/test.com").with(headers: {
-        "Accept" => "application/rdap+json",
+        "Accept" => "application/rdap+json, application/json, */*;q=0.8",
         "User-Agent" => "My application",
         "Accept-Encoding" => "gzip"
       }).to_return(body: "{}")
@@ -66,6 +66,14 @@ describe RDAP do
       })
       expect(WebMock).not_to have_requested(:get, 'https://rdap.org/domain/google.com')
       expect(WebMock).to have_requested(:get, 'https://rdap.verisign.com/com/v1/domain/google.com').once
+    end
+
+    it "supports rdap.nic.fr which does not accept rdap+json mimetype (as of 2022-12-29)" do
+      expect(RDAP.domain("airport.fr")).to include({
+        "objectClassName" => "domain",
+        "handle" => "DOM000000001670-FRNIC",
+      })
+      expect(WebMock).to have_requested(:get, 'https://rdap.nic.fr/domain/airport.fr').once
     end
 
     it "raises an error for wrong type" do
@@ -112,7 +120,7 @@ describe RDAP do
       stub_request(:get, "https://rdap.org/domain/test.com").to_return(body: "invalid")
       expect {
         RDAP.domain("test.com")
-      }.to raise_error(RDAP::InvalidResponse, "JSON parser error: 809: unexpected token at 'invalid'")
+      }.to raise_error(RDAP::InvalidResponse, "JSON parser error: 859: unexpected token at 'invalid'")
     end
 
     it "raises an error for invalid SSL" do
