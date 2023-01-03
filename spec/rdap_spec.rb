@@ -120,7 +120,7 @@ describe RDAP do
       stub_request(:get, "https://rdap.org/domain/test.com").to_return(body: "invalid")
       expect {
         RDAP.domain("test.com")
-      }.to raise_error(RDAP::InvalidResponse, "JSON parser error: 859: unexpected token at 'invalid'")
+      }.to raise_error(RDAP::InvalidResponse, /JSON parser error: (\d+: )?unexpected token at 'invalid'/)
     end
 
     it "raises an error for invalid SSL" do
