@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rdap (0.1.4)
+    rdap (0.1.5)
 
 GEM
   remote: https://rubygems.org/

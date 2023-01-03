@@ -1,4 +1,4 @@
-# RDAP [![Build Status](https://app.travis-ci.com/jarthod/rdap.svg?branch=master)](https://app.travis-ci.com/github/jarthod/rdap)
+# RDAP
 
 A minimal Ruby client to query RDAP APIs though a bootstrap server.
 No dependencies, no caching or bootstrap file (the query is routed through a bootstrap server first).
