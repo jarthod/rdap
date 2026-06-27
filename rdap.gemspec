@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{A minimal Ruby client to query RDAP APIs though a bootstrap server}
   spec.homepage      = "https://github.com/jarthod/rdap"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.2.0")
 
-  spec.files         = ["lib/rdap.rb"]
+  spec.files         = ["lib/rdap.rb"] + Dir["data/*.json"]
   spec.require_paths = ["lib"]
 end

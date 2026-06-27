@@ -2,137 +2,99 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rdap.org/domain/jsiqpmcurt.design
+    uri: https://rdap.nic.design/domain/jsiqpmcurt.design
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Agent:
+      - RDAP ruby gem (1.0.0)
       Accept:
-      - application/rdap+json
+      - application/rdap+json, application/json, */*;q=0.8
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Fri, 17 Dec 2021 16:41:13 GMT
-      Content-Type:
-      - text/html; charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Status:
-      - '302'
-      Location:
-      - https://rdap.centralnic.com/design/domain/jsiqpmcurt.design
-      Cf-Cache-Status:
-      - DYNAMIC
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hbp3lZa2vOcVzXoqqGcjGcJv73jE9HA6z0gc815WI8vs%2BdLHzorI44HAS2z3vyeeg0XKUiBHTeJptbi76phxIzCmYqbndHz0YGy3CwtXjCv1yEQHopCSAWGbf8jspJf1YYQ5903RiA%3D%3D"}],"group":"cf-nel","max_age":604800}'
-      Nel:
-      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 6bf19902bcd3cd87-CDG
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
-        ma=86400
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 17 Dec 2021 16:41:13 GMT
-- request:
-    method: get
-    uri: https://rdap.centralnic.com/design/domain/jsiqpmcurt.design
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/rdap+json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 404
-      message: Object not found
+      message: ''
     headers:
-      Date:
-      - Fri, 17 Dec 2021 16:41:13 GMT
-      Server:
-      - Apache
-      Strict-Transport-Security:
-      - max-age=2592000; includeSubDomains
-      Referrer-Policy:
-      - same-origin
+      Vary:
+      - Access-Control-Request-Headers
+      - Access-Control-Request-Method
+      - Origin
+      X-Frame-Options:
+      - DENY
       X-Content-Type-Options:
       - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
       X-Xss-Protection:
-      - 1; mode=block
+      - '0'
       Content-Security-Policy:
-      - default-src 'none'; object-src 'none'; report-uri https://www.centralnic.com/report-uri
-      Feature-Policy:
-      - camera 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; magnetometer
-        'none'; microphone 'none'; midi 'none'; notifications 'none'; payment 'none';
-        push 'none'; speaker 'none'; sync-xhr 'none'; vibrate 'none'
-      Expect-Ct:
-      - enforce, max-age=604800, report-uri=https://www.centralnic.com/report-uri
-      Content-Language:
-      - en
+      - script-src 'self' 'unsafe-eval';
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Permissions-Policy:
+      - accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(),
+        display-capture=(), document-domain=(), encrypted-media=(), execution-while-out-of-viewport=(),
+        fullscreen=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(),
+        local-fonts=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(),
+        publickey-credentials-get=(), screen-wake-lock=(), serial=(), speaker-selection=(),
+        usb=(), web-share=(), xr-spatial-tracking=()
       Access-Control-Allow-Origin:
       - "*"
-      Status:
-      - '404'
-      Vary:
-      - Accept-Encoding
-      Content-Length:
-      - '944'
-      Connection:
-      - close
+      Content-Disposition:
+      - inline;filename=f.txt
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
       Content-Type:
       - application/rdap+json
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Sat, 27 Jun 2026 13:33:45 GMT
     body:
-      encoding: ASCII-8BIT
-      string: '{"notices":[{"title":"Status Codes","description":["For more information
-        on domain status codes, please visit https:\/\/icann.org\/epp"],"links":[{"title":"More
-        information on domain status codes","href":"https:\/\/icann.org\/epp"}]},{"title":"Terms
-        of Use","description":["For more information on Whois status codes, please
-        visit https:\/\/icann.org\/epp","",">>> IMPORTANT INFORMATION ABOUT THE DEPLOYMENT
-        OF RDAP: please visit","https:\/\/www.centralnic.com\/support\/rdap <<<","","The
-        Whois and RDAP services are provided by CentralNic, and contain","information
-        pertaining to Internet domain names registered by our","our customers. By
-        using this service you are agreeing (1) not to use any","information presented
-        here for any purpose other than determining","ownership of domain names, (2)
-        not to store or reproduce this data in","any way, (3) not to use any high-volume,
-        automated, electronic processes","to obtain data from this service. Abuse
-        of this service is monitored and","actions in contravention of these terms
-        will result in being permanently","blacklisted. All data is (c) CentralNic
-        Ltd (https:\/\/www.centralnic.com)","","Access to the Whois and RDAP services
-        is rate limited. For more","information, visit https:\/\/registrar-console.centralnic.com\/pub\/whois_guidance."],"links":[{"title":"Terms
-        of Use","href":"https:\/\/www.nic.design\/"}]},{"title":"RDDS Inaccuracy Complaint
-        Form","description":["URL of the ICANN RDDS Inaccuracy Complaint Form: https:\/\/www.icann.org\/wicf\/"],"links":[{"title":"ICANN
-        RDDS Inaccuracy Complaint Form","href":"https:\/\/www.icann.org\/wicf\/"}]}],"links":[{"title":"Authoritative
-        URL for this resource","rel":"self","type":"application\/rdap+json","href":"https:\/\/rdap.centralnic.com\/design\/domain\/jsiqpmcurt.design"},{"title":"RDAP
-        Service Help","rel":"help","href":"https:\/\/whois.nic.design\/rdap"},{"title":"Top
-        Level Design, LLC","href":"https:\/\/toplevel.design\/"}],"errorCode":404,"title":"Object
-        not found","description":["Object not found"],"rdapConformance":["icann_rdap_response_profile_0","icann_rdap_technical_implementation_guide_0","rdap_level_0"],"lang":"en"}'
-  recorded_at: Fri, 17 Dec 2021 16:41:13 GMT
-recorded_with: VCR 6.0.0
+      encoding: UTF-8
+      string: '{"rdapConformance":["rdap_level_0","icann_rdap_response_profile_1","icann_rdap_technical_implementation_guide_1"],"notices":[{"title":"RDAP
+        Help","description":["domain/XXXX","nameserver/XXXX","entity/XXXX","domains?name=XXXX","domains?nsLdhName=XXXX","domains?nsIp=XXXX","nameservers?name=XXXX","nameservers?ip=XXXX","entities?fn=XXXX","entities?handle=XXXX","help/XXXX"],"links":[{"rel":"alternate","value":"https://rdap.nic.design/domain/jsiqpmcurt.design","href":"https://www.registry.godaddy/rdap","type":"text/html"}]},{"title":"RDAP
+        Terms of Service","description":["The RDAP service (the Service) offered by
+        Registry Services LLC, or our designated representatives (GoDaddy Registry),
+        is provided for informational purposes only and is designed to assist a user
+        (you) to look up certain information related to the registration records of
+        existing domain names.","The information provided by the Service is \u2018as
+        is\u2019 and we make no guarantee of its accuracy. Registry Services LLC cannot,
+        under any circumstances, be held liable in such instances where the stored
+        information would prove to be wrong, incomplete, or not accurate in any sense.","By
+        submitting a query, you agree that you will not use this data","(i)            to
+        allow, enable or otherwise support in any way the transmission of unsolicited,
+        commercial advertising or other solicitations whether via direct mail, email,
+        telephone or otherwise;","(ii)           to enable high volume, automated,
+        electronic processes that apply to the Service or associated systems;","(iii)          for
+        targeted advertising in any possible way;","(iv)         to cause nuisance
+        in any possible way to individuals by sending (whether by automated, electronic
+        processes capable of enabling high volumes or other possible means) messages
+        to them;","(v)          in a way that is inconsistent with any applicable
+        laws rule, regulation or statute or any policy issued by Registry Services
+        LLC; and/or","(vi)         in contravention of any applicable data and privacy
+        protection acts.","Without prejudice to the above, the copying, compilation,
+        repackaging, dissemination or other use of the information provided by the
+        Service is explicitly forbidden without prior and explicit permission by Registry
+        Services LLC.","By your use of the Service you agree to abide by these Terms
+        of Service and accept that Registry Services LLC can take measures to limit
+        the use of the Service in order to protect the privacy of registrants or the
+        integrity of the Service. Registry Services LLC may restrict, suspend or terminate
+        your access to the Service at any time. Registry Services LLC reserve the
+        right to make changes to the Service and these Terms of Service at any time
+        without prior notice to you. It is your responsibility to review these Terms
+        of Service each time you access or use the Service to keep apprised of any
+        changes. If you do not agree to the changes implemented by Registry Services
+        LLC, your sole and exclusive remedy is to terminate your use of the Service.","By
+        executing a query, in any manner whatsoever, you agree to abide by these Terms
+        of Service."],"links":[{"rel":"terms-of-service","value":"https://rdap.nic.design/domain/jsiqpmcurt.design","href":"https://www.registry.godaddy/rdap","type":"text/html"}]}],"lang":"en","errorCode":404,"title":"Not
+        found","description":["No data found"]}'
+  recorded_at: Sat, 27 Jun 2026 13:33:45 GMT
+recorded_with: VCR 6.4.0

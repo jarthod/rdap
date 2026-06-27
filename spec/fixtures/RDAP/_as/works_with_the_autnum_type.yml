@@ -2,148 +2,208 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rdap.org/autnum/16276
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/rdap+json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Date:
-      - Fri, 17 Dec 2021 16:41:15 GMT
-      Content-Type:
-      - text/html; charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Status:
-      - '302'
-      Location:
-      - https://rdap.db.ripe.net/autnum/16276
-      Cf-Cache-Status:
-      - DYNAMIC
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=P80y9Au4hQEbknBLGynRoUuub7uujXas6R64X%2BxqsnJDk8G2zPxOXpI%2Fg%2FZK10d%2Ff1eNxFXYdboHJ4TGWEfoeS8tLewmzb639PphfbR3gPQnmsLN6%2BLZWXtp069PHF8G%2BCD688nb6Q%3D%3D"}],"group":"cf-nel","max_age":604800}'
-      Nel:
-      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 6bf1990e5e0339db-CDG
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
-        ma=86400
-    body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Fri, 17 Dec 2021 16:41:15 GMT
-- request:
-    method: get
     uri: https://rdap.db.ripe.net/autnum/16276
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Agent:
+      - RDAP ruby gem (1.0.0)
       Accept:
-      - application/rdap+json
+      - application/rdap+json, application/json, */*;q=0.8
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 200
       message: OK
     headers:
-      Date:
-      - Fri, 17 Dec 2021 16:41:15 GMT
       Server:
-      - Jetty(10.0.7)
-      Access-Control-Allow-Origin:
-      - "*"
+      - Jetty(12.0.33)
+      Date:
+      - Sat, 27 Jun 2026 13:33:47 GMT
+      Vary:
+      - Origin
       Content-Type:
       - application/rdap+json
-      Content-Length:
-      - '2355'
+      Transfer-Encoding:
+      - chunked
     body:
       encoding: UTF-8
       string: |-
         {
           "handle" : "AS16276",
+          "startAutnum" : 16276,
+          "endAutnum" : 16276,
           "name" : "OVH",
-          "type" : "DIRECT ALLOCATION",
+          "status" : [ "active" ],
           "entities" : [ {
             "handle" : "OK217-RIPE",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "Octave Klaba" ], [ "kind", { }, "text", "individual" ], [ "adr", {
+              "label" : "OVH SAS\n2 rue Kellermann\n59100 Roubaix\nFrance"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "tel", {
+              "type" : "voice"
+            }, "text", "+33 9 74 53 13 23" ] ] ],
             "roles" : [ "administrative" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "self",
+              "href" : "https://rdap.db.ripe.net/entity/OK217-RIPE"
+            }, {
+              "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+              "rel" : "copyright",
+              "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+            } ],
             "objectClassName" : "entity"
           }, {
             "handle" : "ORG-OS3-RIPE",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "OVH SAS" ], [ "kind", { }, "text", "org" ], [ "adr", {
+              "label" : "2 rue Kellermann\n59100\nRoubaix\nFRANCE"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "tel", {
+              "type" : "voice"
+            }, "text", "+33972101007" ] ] ],
             "roles" : [ "registrant" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "self",
+              "href" : "https://rdap.db.ripe.net/entity/ORG-OS3-RIPE"
+            }, {
+              "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+              "rel" : "copyright",
+              "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+            } ],
             "objectClassName" : "entity"
           }, {
             "handle" : "OTC2-RIPE",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "OVH Technical Contact" ], [ "kind", { }, "text", "group" ], [ "adr", {
+              "label" : "OVH SAS\n2 rue Kellermann\n59100 Roubaix\nFrance"
+            }, "text", [ "", "", "", "", "", "", "" ] ], [ "email", {
+              "type" : "abuse"
+            }, "text", "abuse@ovh.net" ] ] ],
             "roles" : [ "technical" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "self",
+              "href" : "https://rdap.db.ripe.net/entity/OTC2-RIPE"
+            }, {
+              "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+              "rel" : "copyright",
+              "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+            } ],
             "objectClassName" : "entity"
           }, {
             "handle" : "OVH-MNT",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "OVH-MNT" ], [ "kind", { }, "text", "individual" ] ] ],
             "roles" : [ "registrant" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "self",
+              "href" : "https://rdap.db.ripe.net/entity/OVH-MNT"
+            }, {
+              "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+              "rel" : "copyright",
+              "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+            } ],
             "objectClassName" : "entity"
           }, {
             "handle" : "RIPE-NCC-END-MNT",
+            "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "RIPE-NCC-END-MNT" ], [ "kind", { }, "text", "individual" ], [ "org", { }, "text", "ORG-NCC1-RIPE" ] ] ],
             "roles" : [ "registrant" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "self",
+              "href" : "https://rdap.db.ripe.net/entity/RIPE-NCC-END-MNT"
+            }, {
+              "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+              "rel" : "copyright",
+              "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+            } ],
             "objectClassName" : "entity"
           }, {
             "handle" : "AR15333-RIPE",
             "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "Abuse-C Role" ], [ "kind", { }, "text", "group" ], [ "adr", {
               "label" : "OVH SAS\n2 Rue Kellermann\n59100 ROUBAIX\nFRANCE"
             }, "text", [ "", "", "", "", "", "", "" ] ], [ "email", {
-              "type" : "email"
-            }, "text", "lir@ovh.net" ], [ "email", {
               "type" : "abuse"
             }, "text", "abuse@ovh.net" ] ] ],
             "roles" : [ "abuse" ],
             "entities" : [ {
               "handle" : "OVH-MNT",
+              "vcardArray" : [ "vcard", [ [ "version", { }, "text", "4.0" ], [ "fn", { }, "text", "OVH-MNT" ], [ "kind", { }, "text", "individual" ] ] ],
               "roles" : [ "registrant" ],
+              "links" : [ {
+                "value" : "https://rdap.db.ripe.net/autnum/16276",
+                "rel" : "self",
+                "href" : "https://rdap.db.ripe.net/entity/OVH-MNT"
+              }, {
+                "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
+                "rel" : "copyright",
+                "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
+              } ],
               "objectClassName" : "entity"
             } ],
             "objectClassName" : "entity"
           } ],
           "links" : [ {
             "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-up",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-up/AS16276",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-up rdap-active",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-up/AS16276?status=active",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-down",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-down/AS16276",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-top",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-top/AS16276",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-top rdap-active",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-top/AS16276?status=active",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
+            "rel" : "rdap-bottom",
+            "href" : "https://rdap.db.ripe.net/autnums/rirSearch1/rdap-bottom/AS16276",
+            "type" : "application/rdap+json"
+          }, {
+            "value" : "https://rdap.db.ripe.net/autnum/16276",
             "rel" : "self",
-            "href" : "https://rdap.db.ripe.net/autnum/16276"
+            "href" : "https://rdap.db.ripe.net/autnum/16276",
+            "type" : "application/rdap+json"
           }, {
             "value" : "http://www.ripe.net/data-tools/support/documentation/terms",
             "rel" : "copyright",
             "href" : "http://www.ripe.net/data-tools/support/documentation/terms"
           } ],
           "events" : [ {
+            "eventAction" : "registration",
+            "eventDate" : "1970-01-01T00:00:00Z"
+          }, {
             "eventAction" : "last changed",
-            "eventDate" : "2021-12-01T13:21:46Z"
+            "eventDate" : "2026-06-25T12:26:03Z"
           } ],
-          "rdapConformance" : [ "rdap_level_0" ],
+          "rdapConformance" : [ "nro_rdap_profile_asn_flat_0", "rirSearch1", "autnums", "cidr0", "rdap_level_0", "nro_rdap_profile_0", "redacted" ],
           "notices" : [ {
             "title" : "Filtered",
             "description" : [ "This output has been filtered." ]
+          }, {
+            "title" : "Whois Inaccuracy Reporting",
+            "description" : [ "If you see inaccuracies in the results, please visit:" ],
+            "links" : [ {
+              "value" : "https://rdap.db.ripe.net/autnum/16276",
+              "rel" : "inaccuracy-report",
+              "href" : "https://www.ripe.net/contact-form?topic=ripe_dbm&show_form=true",
+              "type" : "text/html"
+            } ]
           }, {
             "title" : "Source",
             "description" : [ "Objects returned came from source", "RIPE" ]
@@ -158,7 +218,44 @@ http_interactions:
             } ]
           } ],
           "port43" : "whois.ripe.net",
-          "objectClassName" : "autnum"
+          "objectClassName" : "autnum",
+          "redacted" : [ {
+            "name" : {
+              "description" : "Personal e-mail information"
+            },
+            "reason" : {
+              "description" : "Personal data"
+            },
+            "prePath" : "$.entities[?(@.handle=='OK217-RIPE')].vcardArray[1][?(@[0]=='e-mail')]",
+            "method" : "removal"
+          }, {
+            "name" : {
+              "description" : "Personal e-mail information"
+            },
+            "reason" : {
+              "description" : "Personal data"
+            },
+            "prePath" : "$.entities[?(@.handle=='ORG-OS3-RIPE')].vcardArray[1][?(@[0]=='e-mail')]",
+            "method" : "removal"
+          }, {
+            "name" : {
+              "description" : "Personal e-mail information"
+            },
+            "reason" : {
+              "description" : "Personal data"
+            },
+            "prePath" : "$.entities[?(@.handle=='OTC2-RIPE')].vcardArray[1][?(@[0]=='e-mail')]",
+            "method" : "removal"
+          }, {
+            "name" : {
+              "description" : "Personal e-mail information"
+            },
+            "reason" : {
+              "description" : "Personal data"
+            },
+            "prePath" : "$.entities[?(@.handle=='AR15333-RIPE')].vcardArray[1][?(@[0]=='e-mail')]",
+            "method" : "removal"
+          } ]
         }
-  recorded_at: Fri, 17 Dec 2021 16:41:15 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 27 Jun 2026 13:33:47 GMT
+recorded_with: VCR 6.4.0

@@ -10,6 +10,7 @@ describe RDAP do
         "events" => [
           {"eventAction"=>"registration", "eventDate"=>"1997-09-15T04:00:00Z"},
           {"eventAction"=>"expiration", "eventDate"=>instance_of(String)},
+          {"eventAction"=>"last changed", "eventDate"=>instance_of(String)},
           {"eventAction"=>"last update of RDAP database", "eventDate"=>instance_of(String)}
         ],
         "nameservers" => [
@@ -18,9 +19,9 @@ describe RDAP do
           {"objectClassName" => "nameserver", "ldhName" => "NS3.GOOGLE.COM"},
           {"objectClassName" => "nameserver", "ldhName" => "NS4.GOOGLE.COM"}
         ],
-        "rdapConformance"=> ["rdap_level_0", "icann_rdap_technical_implementation_guide_0", "icann_rdap_response_profile_0"],
+        "rdapConformance"=> ["rdap_level_0", "icann_rdap_technical_implementation_guide_1", "icann_rdap_response_profile_1"],
       })
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/domain/google.com').once
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/domain/google.com')
       expect(WebMock).to have_requested(:get, 'https://rdap.verisign.com/com/v1/domain/google.com').once
     end
 
@@ -33,7 +34,7 @@ describe RDAP do
         "Accept" => "application/rdap+json, application/json, */*;q=0.8",
         "User-Agent" => "RDAP ruby gem (#{RDAP::VERSION})"
       }).to_return(body: "{}")
-      RDAP.domain("test.com")
+      RDAP.domain("test.com", server: "https://rdap.org")
     end
 
     it "pass customized headers if any", vcr: false do
@@ -47,7 +48,7 @@ describe RDAP do
         "User-Agent" => "My application",
         "Accept-Encoding" => "gzip"
       }).to_return(body: "{}")
-      RDAP.domain("test.com", headers: {'User-Agent' => 'My application', 'Accept-Encoding' => 'gzip'})
+      RDAP.domain("test.com", server: "https://rdap.org", headers: {'User-Agent' => 'My application', 'Accept-Encoding' => 'gzip'})
     end
 
     it "supports overriding the bootstrap URL" do
@@ -73,62 +74,66 @@ describe RDAP do
         "objectClassName" => "domain",
         "handle" => "DOM000000001670-FRNIC",
       })
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/domain/airport.fr')
       expect(WebMock).to have_requested(:get, 'https://rdap.nic.fr/domain/airport.fr').once
     end
 
     it "raises an error for wrong type" do
       expect {
         RDAP.domain("8.8.8.8")
-      }.to raise_error(RDAP::NotFound, "[404] domain 8.8.8.8 not found in IANA boostrap file")
+      }.to raise_error(RDAP::NotFound, "[404] Not Found")
       expect(WebMock).to have_requested(:get, 'https://rdap.org/domain/8.8.8.8').once
     end
 
-    it "raises an error for unsupported TLD" do
+    it "queries the authoritative server directly from the bundled bootstrap files" do
       expect {
-        RDAP.domain("test.fr")
-      }.to raise_error(RDAP::NotFound, "[404] domain test.fr not found in IANA boostrap file")
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/domain/test.fr').once
+        RDAP.domain("jsiqpmcurt.fr")
+      }.to raise_error(RDAP::NotFound)
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/domain/jsiqpmcurt.fr')
+      expect(WebMock).to have_requested(:get, 'https://rdap.nic.fr/domain/jsiqpmcurt.fr').once
     end
 
     it "raises an error for domain not found" do
       expect {
         RDAP.domain("jsiqpmcurt.design")
-      }.to raise_error(RDAP::NotFound, "[404] Object not found")
+      }.to raise_error(RDAP::NotFound, "[404] Not found")
+      expect(WebMock).to have_requested(:get, 'https://rdap.nic.design/domain/jsiqpmcurt.design').once
     end
 
-    it "raises an error for domain not found when the response body is empty" do
+    it "raises an error for domain not found when the response body is empty", vcr: false do
+      stub_request(:get, "https://rdap.verisign.com/com/v1/domain/jsiqpmcurt.com").to_return(status: [404, ""])
       expect {
         RDAP.domain("jsiqpmcurt.com")
-      }.to raise_error(RDAP::NotFound, "[404] Not Found")
+      }.to raise_error(RDAP::NotFound, "[404] ")
     end
 
     it "raises an error for throttling", vcr: false do
       stub_request(:get, "https://rdap.org/domain/test.com").to_return(status: [429, "Too Many Requests"])
       expect {
-        RDAP.domain("test.com")
+        RDAP.domain("test.com", server: "https://rdap.org")
       }.to raise_error(RDAP::TooManyRequests, "[429] Too Many Requests")
     end
 
     it "raises an error for empty body", vcr: false do
       stub_request(:get, "https://rdap.org/domain/test.com").to_return(status: [204, "No Content"])
       expect {
-        RDAP.domain("test.com")
+        RDAP.domain("test.com", server: "https://rdap.org")
       }.to raise_error(RDAP::EmptyResponse, "[204] No Content")
     end
 
     it "raises an error for invalid JSON", vcr: false do
       stub_request(:get, "https://rdap.org/domain/test.com").to_return(body: "invalid")
       expect {
-        RDAP.domain("test.com")
+        RDAP.domain("test.com", server: "https://rdap.org")
       }.to raise_error(RDAP::InvalidResponse, /\AJSON parser error: .*invalid/)
     end
 
-    it "raises an error for invalid SSL" do
-      stub = stub_request(:get, "https://whois.registrar.adult/rdap/domain/heaven.porn").to_raise(OpenSSL::SSL::SSLError.new("SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)"))
+    it "raises an error for invalid SSL", vcr: false do
+      stub = stub_request(:get, "https://rdap.nic.porn/domain/heaven.porn").to_raise(OpenSSL::SSL::SSLError.new("SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired)"))
       expect {
         RDAP.domain("heaven.porn")
-      }.to raise_error(RDAP::SSLError, "SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired) (whois.registrar.adult)")
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/domain/heaven.porn').once
+      }.to raise_error(RDAP::SSLError, "SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate has expired) (rdap.nic.porn)")
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/domain/heaven.porn')
       expect(stub).to have_been_requested
     end
 
@@ -153,13 +158,13 @@ describe RDAP do
         "cidr0_cidrs" => [{"length"=>24, "v4prefix"=>"8.8.8.0"}],
         "startAddress" => "8.8.8.0",
         "endAddress" => "8.8.8.255",
-        "handle" => "NET-8-8-8-0-1",
-        "parentHandle" => "NET-8-0-0-0-1",
+        "handle" => "NET-8-8-8-0-2",
+        "parentHandle" => "NET-8-0-0-0-0",
         "ipVersion" => "v4",
         "rdapConformance" => ["nro_rdap_profile_0", "rdap_level_0", "cidr0", "arin_originas0"],
       })
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/ip/8.8.8.8').once
-      expect(WebMock).to have_requested(:get, 'https://rdap.arin.net/registry/ip/8.8.8.8/32').once
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/ip/8.8.8.8')
+      expect(WebMock).to have_requested(:get, 'https://rdap.arin.net/registry/ip/8.8.8.8').once
     end
 
     it "works with the :ip type (IPv6)" do
@@ -168,7 +173,7 @@ describe RDAP do
         "name" => "OPENDNS-V6-NET-1",
         "status" => ["active"],
         "cidr0_cidrs" => [{"length"=>40, "v6prefix"=>"2620:119::"}],
-        "arin_originas0_originautnums" => [36692],
+        "arin_originas0_originautnums" => [],
         "startAddress" => "2620:119::",
         "endAddress" => "2620:119:ff:ffff:ffff:ffff:ffff:ffff",
         "handle" => "NET6-2620-119-1",
@@ -176,8 +181,14 @@ describe RDAP do
         "ipVersion" => "v6",
         "rdapConformance" => ["nro_rdap_profile_0", "rdap_level_0", "cidr0", "arin_originas0"],
       })
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/ip/2620:119:35::35').once
-      expect(WebMock).to have_requested(:get, 'https://rdap.arin.net/registry/ip/2620:119:35::35/128').once
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/ip/2620:119:35::35')
+      expect(WebMock).to have_requested(:get, 'https://rdap.arin.net/registry/ip/2620:119:35::35').once
+    end
+
+    it "raises an error for an invalid IP", vcr: false do
+      expect {
+        RDAP.ip("notanip")
+      }.to raise_error(IPAddr::InvalidAddressError, /invalid address:/)
     end
   end
 
@@ -185,14 +196,22 @@ describe RDAP do
     it "works with the :autnum type" do
       expect(RDAP.as("16276")).to include({
         "objectClassName" => "autnum",
-        "type" => "DIRECT ALLOCATION",
         "name" => "OVH",
         "handle" => "AS16276",
-        "events" => [{"eventAction"=>"last changed", "eventDate"=>instance_of(String)}],
-        "rdapConformance" => ["rdap_level_0"],
+        "events" => [
+          {"eventAction"=>"registration", "eventDate"=>instance_of(String)},
+          {"eventAction"=>"last changed", "eventDate"=>instance_of(String)}
+        ],
+        "rdapConformance" => ["nro_rdap_profile_asn_flat_0", "rirSearch1", "autnums", "cidr0", "rdap_level_0", "nro_rdap_profile_0", "redacted"],
       })
-      expect(WebMock).to have_requested(:get, 'https://rdap.org/autnum/16276').once
+      expect(WebMock).not_to have_requested(:get, 'https://rdap.org/autnum/16276')
       expect(WebMock).to have_requested(:get, 'https://rdap.db.ripe.net/autnum/16276').once
+    end
+
+    it "raises an error for an invalid AS number", vcr: false do
+      expect {
+        RDAP.as("AS16276")
+      }.to raise_error(ArgumentError, 'RDAP: Invalid AS number: "AS16276"')
     end
   end
 
