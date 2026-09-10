@@ -76,7 +76,11 @@ RDAP.domain("u$&~(!*@&@^#}") # Invalid URI
 # => URI::InvalidURIError (bad URI (is not URI?): "https://rdap.org/domain/u$&~(!*@&@^#}")
 RDAP.domain("broken") # Other type of unexpected server response
 # => RDAP::ServerError ([500] Internal Server Error)
+RDAP.domain("example.com") # Connection reset/refused, DNS failure, timeout, server hangs up, ...
+# => RDAP::ConnectionError (EOFError: end of file reached (rdap.verisign.com))
 ```
+
+`RDAP::SSLError` and `RDAP::ConnectionError` are subclasses of `RDAP::ServerError`, itself a subclass of `RDAP::Error`, so you can rescue at whichever level suits you.
 
 ## How does it work
 
@@ -88,6 +92,7 @@ The bundled files are refreshed with `rake bootstrap:update` (maintainers do thi
 
 ## Changelog
 
+- **1.0.1** (2026-09-10) - Wrap transport-level failures (connection reset/refused, DNS errors, timeouts, server closing the connection mid-response, ...) as `RDAP::ConnectionError < ServerError < Error` instead of letting `EOFError`, `Net::ReadTimeout`, `Errno::*` & co. leak out.
 - **1.0.0** (2026-06-27) - Query the authoritative RDAP server directly using the bundled IANA bootstrap files, only falling back to the public bootstrap server (rdap.org) for objects not yet covered. This greatly reduces reliance on the bootstrap server and its rate limits. `.as` now raises `ArgumentError` for invalid AS numbers and `.ip` raises `IPAddr::InvalidAddressError` for invalid IPs (instead of silently querying the bootstrap server). Now requires Ruby >= 3.2. Refresh the bundled files with `rake bootstrap:update`.
 - **0.1.5** (2022-12-29) - Add `application/json, */*` fallback Accept types to support rdap.nic.fr which does not like `application/rdap+json` (as of 2022-12-29). I also contacted them to report this issue.
 - **0.1.4** (2022-02-01) - Wrap JSON parser errors as RDAP::InvalidReponse and also raise RDAP::EmptyResponse when body is missing

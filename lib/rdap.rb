@@ -3,7 +3,7 @@ require 'net/http'
 require 'ipaddr'
 
 module RDAP
-  VERSION = "1.0.0"
+  VERSION = "1.0.1"
   BOOTSTRAP = "https://rdap.org/"
   TYPES = [:domain, :ip, :autnum].freeze
   HEADERS = {
@@ -15,6 +15,7 @@ module RDAP
   class Error < StandardError; end
   class ServerError < Error; end
   class SSLError < ServerError; end
+  class ConnectionError < ServerError; end
   class EmptyResponse < ServerError; end
   class InvalidResponse < ServerError; end
   class NotFound < Error; end
@@ -117,5 +118,8 @@ module RDAP
     raise SSLError.new("#{e.message} (#{uri.host})")
   rescue JSON::ParserError => e
     raise InvalidResponse.new("JSON parser error: #{e.message}")
+  rescue Timeout::Error, IOError, SocketError, SystemCallError => e
+    # Transport failures (timeouts, DNS, connection reset/refused, EOF, ...)
+    raise ConnectionError.new("#{e.class}: #{e.message} (#{uri.host})")
   end
 end

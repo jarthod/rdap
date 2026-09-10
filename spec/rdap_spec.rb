@@ -137,6 +137,14 @@ describe RDAP do
       expect(stub).to have_been_requested
     end
 
+    it "wraps connection errors as RDAP::ConnectionError", vcr: false do
+      stub = stub_request(:get, "https://rdap.nic.design/domain/jsiqpmcurt.design").to_raise(EOFError.new("end of file reached"))
+      expect {
+        RDAP.domain("jsiqpmcurt.design")
+      }.to raise_error(RDAP::ConnectionError, "EOFError: end of file reached (rdap.nic.design)")
+      expect(stub).to have_been_requested
+    end
+
     it "raises an error for an invalid URI" do
       expect {
         RDAP.domain("u$&~(!*@&@^#}")
